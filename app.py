@@ -4,7 +4,7 @@ from PIL import Image
 
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
-logo = Image.open("LogoMF.png")
+logo = Image.open("LogoFix.png")
 
 #Konfigurasi Halaman (Favicon tetap pakai logo kecil)
 st.set_page_config(page_title="MoodFood AI", page_icon=logo)
@@ -42,6 +42,7 @@ st.sidebar.header("Riwayat Konsultasi (Database)")
 if 'history' in st.session_state:
     for h in st.session_state['history']:
         st.sidebar.info(h)
+
 
 
 
