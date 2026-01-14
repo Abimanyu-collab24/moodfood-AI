@@ -4,7 +4,7 @@ from PIL import Image
 
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
-logo = Image.open("MoodFoodAI.png")
+logo = Image.open("logo_moodfood_ai.png")
 # Konfigurasi Tampilan
 col1, col2 = st.columns([1, 5])
 with col1:
@@ -39,6 +39,7 @@ st.sidebar.header("Riwayat Konsultasi (Database)")
 if 'history' in st.session_state:
     for h in st.session_state['history']:
         st.sidebar.info(h)
+
 
 
 
