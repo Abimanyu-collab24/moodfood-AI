@@ -1,12 +1,14 @@
 import streamlit as st  # Baris ini SANGAT PENTING agar 'st' dikenali
 import google.generativeai as genai
+from PIL import Image
 
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
+logo = Image.open("logo_moodfood_ai.png")
 # Konfigurasi Tampilan
-st.set_page_config(page_title="MoodFood AI", page_icon="🍲")
-st.title("🍲 MoodFood AI")
-st.markdown("---")
+st.set_page_config(page_title="MoodFood AI",page_icon=logo)
+st.image(logo, width=100)
+st.title("MoodFood AI")
 
 # Bagian Input User
 st.subheader("Bagaimana perasaanmu saat ini?")
@@ -33,3 +35,4 @@ st.sidebar.header("Riwayat Konsultasi (Database)")
 if 'history' in st.session_state:
     for h in st.session_state['history']:
         st.sidebar.info(h)
+
