@@ -8,7 +8,7 @@ logo = Image.open("MoodFoodAI.png")
 # Konfigurasi Tampilan
 col1, col2 = st.columns([1, 5])
 with col1:
-    st.image(logo, width=200) 
+    st.image(logo, width=300) 
 
 with col2:
     st.title("MoodFood AI")
@@ -39,6 +39,7 @@ st.sidebar.header("Riwayat Konsultasi (Database)")
 if 'history' in st.session_state:
     for h in st.session_state['history']:
         st.sidebar.info(h)
+
 
 
 
