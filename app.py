@@ -1,7 +1,4 @@
-# Tambahkan baris ini di paling atas file (baris 1)
 import os 
-
-# Ganti baris konfigurasi genai menjadi ini:
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
 # Konfigurasi Tampilan
@@ -33,4 +30,5 @@ if st.button("Dapatkan Rekomendasi Menu"):
 st.sidebar.header("Riwayat Konsultasi (Database)")
 if 'history' in st.session_state:
     for h in st.session_state['history']:
+
         st.sidebar.info(h)
