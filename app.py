@@ -16,7 +16,7 @@ tanya_tambahan = st.text_input("Ada keluhan lain? (Opsional)", placeholder="Misa
 if st.button("Dapatkan Rekomendasi Menu"):
     model = genai.GenerativeModel('gemini-2.5-flash') # Menggunakan model terbaru
     
-   prompt = f"Saya sedang merasa {mood_pilihan}. {tanya_tambahan}. Berikan 1 rekomendasi makanan atau minuman yang sehat secara ilmiah untuk mood ini, sertakan resep singkat dan fun fact nutrisinya."
+    prompt = f"Saya sedang merasa {mood_pilihan}. {tanya_tambahan}. Berikan 2 rekomendasi makanan atau minuman yang sehat secara ilmiah untuk mood ini, sertakan resep singkat dan fun fact nutrisinya."
     
     with st.spinner('AI sedang memikirkan menu terbaik...'):
         response = model.generate_content(prompt)
@@ -32,9 +32,4 @@ if st.button("Dapatkan Rekomendasi Menu"):
 st.sidebar.header("Riwayat Konsultasi (Database)")
 if 'history' in st.session_state:
     for h in st.session_state['history']:
-
         st.sidebar.info(h)
-
-
-
-
