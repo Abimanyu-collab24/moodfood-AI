@@ -16,17 +16,7 @@ tanya_tambahan = st.text_input("Ada Pertanyaan/keluhan lain? (Opsional)", placeh
 if st.button("Dapatkan Rekomendasi Menu"):
     model = genai.GenerativeModel('gemini-2.5-flash') # Menggunakan model terbaru
     
-    prompt = f"
-Saya sedang merasa {mood_pilihan}. {tanya_tambahan}. 
-Berikan 2 rekomendasi makanan atau minuman yang sehat secara ilmiah untuk mood ini. 
-
-Untuk setiap rekomendasi, formatnya harus seperti ini:
-1. Nama Menu (Gunakan Emoji)
-2. Penjelasan Ilmiah: Mengapa makanan ini cocok untuk mood {mood_pilihan}.
-3. Resep Singkat: Bahan dan cara buat simpel.
-4. Fun Fact Nutrisi: Fakta menarik tentang kandungan gizinya.
-
-Gunakan bahasa yang ramah dan menyemangati."
+   prompt = f"Saya sedang merasa {mood_pilihan}. {tanya_tambahan}. Berikan 1 rekomendasi makanan atau minuman yang sehat secara ilmiah untuk mood pengguna, sertakan resep singkat dan fun fact nutrisinya."
     
     with st.spinner('AI sedang memikirkan menu terbaik...'):
         response = model.generate_content(prompt)
@@ -44,5 +34,6 @@ if 'history' in st.session_state:
     for h in st.session_state['history']:
 
         st.sidebar.info(h)
+
 
 
