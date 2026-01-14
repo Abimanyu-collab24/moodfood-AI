@@ -1,4 +1,6 @@
-import os 
+import streamlit as st  # Baris ini SANGAT PENTING agar 'st' dikenali
+import google.generativeai as genai
+
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
 # Konfigurasi Tampilan
@@ -32,3 +34,4 @@ if 'history' in st.session_state:
     for h in st.session_state['history']:
 
         st.sidebar.info(h)
+
