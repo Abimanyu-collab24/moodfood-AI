@@ -78,7 +78,7 @@ st.markdown("""
 
 st.markdown(f"""
     <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 20px;">
-        <img src="data:image/png;base64,{img_base64}" style="width: 50px; height: 50px; object-fit: contain;">
+        <img src="data:image/png;base64,{img_base64}" style="width: 100px; height: 100px; object-fit: contain;">
         <h1 style="margin: 0; font-size: 26px; color: #2E7D32;">MoodFood AI</h1>
     </div>
 """, unsafe_allow_html=True)
@@ -116,6 +116,7 @@ st.sidebar.header("Riwayat Konsultasi (Database)")
 if 'history' in st.session_state:
     for h in st.session_state['history']:
         st.sidebar.info(h)
+
 
 
 
