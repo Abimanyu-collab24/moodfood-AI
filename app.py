@@ -11,18 +11,15 @@ st.set_page_config(page_title="MoodFood AI", page_icon=logo)
 
 st.markdown("""
     <style>
-    /* 1. Mengganti Background Utama dengan gradasi lembut */
     .stApp {
         background: linear-gradient(to right, #f8f9fa, #e8f5e9);
     }
 
-    /* 2. Mempercantik Sidebar */
     [data-testid="stSidebar"] {
         background-color: #ffffff;
         border-right: 2px solid #4CAF50;
     }
 
-    /* 3. Judul Utama yang Berwarna */
     h1 {
         color: #2E7D32;
         font-family: 'Poppins', sans-serif;
@@ -30,7 +27,6 @@ st.markdown("""
         text-align: center;
     }
 
-    /* 4. Membuat Tombol 'Dapatkan Rekomendasi' lebih mencolok */
     .stButton>button {
         width: 100%;
         border-radius: 30px;
@@ -50,17 +46,24 @@ st.markdown("""
         color: #ffffff;
     }
 
-    /* 5. Memberikan warna pada kartu hasil rekomendasi */
     .stAlert {
         border-radius: 15px;
         border-left: 5px solid #4CAF50;
         background-color: #ffffff;
     }
 
-    /* 6. Mempercantik Input Label */
     .stSelectbox label, .stTextInput label {
         color: #1B5E20 !important;
         font-weight: bold;
+    }
+    /* Pastikan font judul mengecil otomatis di layar HP */
+    @media (max-width: 640px) {
+        h1 {
+            font-size: 1.4rem !important;
+        }
+        img {
+            width: 45px !important;
+        }
     }
     </style>
 """, unsafe_allow_html=True)
@@ -98,6 +101,7 @@ st.sidebar.header("Riwayat Konsultasi (Database)")
 if 'history' in st.session_state:
     for h in st.session_state['history']:
         st.sidebar.info(h)
+
 
 
 
