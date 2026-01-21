@@ -57,14 +57,34 @@ st.markdown("""
         font-weight: bold;
     }
     /* Pastikan font judul mengecil otomatis di layar HP */
-    @media (max-width: 640px) {
+    @media (max-width: 480px) {
         h1 {
-            font-size: 1.4rem !important;
+            font-size: 20px !important; /* Mengecilkan tulisan di HP */
         }
         img {
-            width: 45px !important;
+            width: 40px !important; /* Mengecilkan gambar di HP */
+            height: 40px !important;
         }
     }
+
+    <div style="
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        gap: 12px; 
+        padding: 10px;
+        margin-bottom: 10px;
+    ">
+        <img src="https://raw.githubusercontent.com/ahmadabimanyu/moodfood-ai/main/logo.png" 
+             style="width: 50px; height: 50px; object-fit: contain; border-radius: 8px;">
+        <h1 style="
+            margin: 0; 
+            font-size: 24px; 
+            color: #2E7D32; 
+            font-family: 'Poppins', sans-serif;
+            white-space: nowrap;
+        ">MoodFood AI</h1>
+    </div>
     </style>
 """, unsafe_allow_html=True)
 
@@ -101,6 +121,7 @@ st.sidebar.header("Riwayat Konsultasi (Database)")
 if 'history' in st.session_state:
     for h in st.session_state['history']:
         st.sidebar.info(h)
+
 
 
 
