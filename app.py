@@ -10,6 +10,7 @@ logo = Image.open("LogoMFoke.png")
 st.set_page_config(page_title="MoodFood AI", page_icon=logo)
 
 st.markdown("""
+<style>
 @media (max-width: 480px) {
         h1 {
             font-size: 20px !important; 
