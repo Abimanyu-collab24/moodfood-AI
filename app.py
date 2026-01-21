@@ -1,10 +1,18 @@
 import streamlit as st 
 import google.generativeai as genai
 from PIL import Image
+import base64
 
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
 logo = Image.open("LogoMFoke.png")
+def get_base64_of_bin_file(bin_file):
+    with open(bin_file, 'rb') as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+
+# Jalankan fungsinya untuk logo kamu
+img_base64 = get_base64_of_bin_file("LogoMFoke.png")
 
 #Konfigurasi Halaman (Favicon tetap pakai logo kecil)
 st.set_page_config(page_title="MoodFood AI", page_icon=logo)
@@ -68,9 +76,9 @@ st.markdown("""
     }
 """, unsafe_allow_html=True)
 
-st.markdown("""
+st.markdown(f"""
     <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 20px;">
-        <img src="LogoMFoke.png" style="width: 45px;">
+        <img src="data:image/png;base64,{img_base64}" style="width: 50px; height: 50px; object-fit: contain;">
         <h1 style="margin: 0; font-size: 26px; color: #2E7D32;">MoodFood AI</h1>
     </div>
 """, unsafe_allow_html=True)
@@ -108,6 +116,7 @@ st.sidebar.header("Riwayat Konsultasi (Database)")
 if 'history' in st.session_state:
     for h in st.session_state['history']:
         st.sidebar.info(h)
+
 
 
 
