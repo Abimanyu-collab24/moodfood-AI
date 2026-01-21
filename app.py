@@ -11,37 +11,56 @@ st.set_page_config(page_title="MoodFood AI", page_icon=logo)
 
 st.markdown("""
     <style>
+    /* 1. Mengganti Background Utama dengan gradasi lembut */
     .stApp {
-        background-color: #f9fbf9;
-    }
-    
-    .stButton>button {
-        width: 100%;
-        border-radius: 25px;
-        background-color: #2E7D32; /* Hijau Tua yang elegan */
-        color: white;
-        font-weight: bold;
-        border: none;
-        padding: 0.6rem;
-        transition: 0.3s;
-    }
-    
-    /* Efek saat tombol disentuh kursor */
-    .stButton>button:hover {
-        background-color: #1B5E20;
-        color: white;
-        transform: scale(1.01);
+        background: linear-gradient(to right, #f8f9fa, #e8f5e9);
     }
 
-    /* Mempercantik Sidebar */
+    /* 2. Mempercantik Sidebar */
     [data-testid="stSidebar"] {
         background-color: #ffffff;
-        border-right: 1px solid #e0e0e0;
+        border-right: 2px solid #4CAF50;
     }
 
+    /* 3. Judul Utama yang Berwarna */
     h1 {
+        color: #2E7D32;
+        font-family: 'Poppins', sans-serif;
+        text-shadow: 1px 1px 2px #bdbdbd;
+        text-align: center;
+    }
+
+    /* 4. Membuat Tombol 'Dapatkan Rekomendasi' lebih mencolok */
+    .stButton>button {
+        width: 100%;
+        border-radius: 30px;
+        background: linear-gradient(45deg, #4CAF50, #8BC34A);
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        border: none;
+        padding: 10px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+    }
+
+    .stButton>button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+        color: #ffffff;
+    }
+
+    /* 5. Memberikan warna pada kartu hasil rekomendasi */
+    .stAlert {
+        border-radius: 15px;
+        border-left: 5px solid #4CAF50;
+        background-color: #ffffff;
+    }
+
+    /* 6. Mempercantik Input Label */
+    .stSelectbox label, .stTextInput label {
         color: #1B5E20 !important;
-        font-family: 'Trebuchet MS', sans-serif;
+        font-weight: bold;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -79,6 +98,7 @@ st.sidebar.header("Riwayat Konsultasi (Database)")
 if 'history' in st.session_state:
     for h in st.session_state['history']:
         st.sidebar.info(h)
+
 
 
 
