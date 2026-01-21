@@ -63,7 +63,7 @@ st.subheader("Bagaimana perasaanmu saat ini?")
 mood_pilihan = st.selectbox("Pilih Mood:", ["Sedih", "Stres", "Lelah", "Cemas", "Senang"])
 tanya_tambahan = st.text_input("Ada Pertanyaan/keluhan lain? (Opsional)", placeholder="Misal: Saya kurang tidur...")
 
-if st.button("Dapatkan Rekomendasi Menu"):
+if st.button("Klik Dapatkan Rekomendasi Menu"):
     model = genai.GenerativeModel('gemini-2.5-flash') # Menggunakan model terbaru
     
     prompt = f"Saya sedang merasa {mood_pilihan}. {tanya_tambahan}. Berikan 2 rekomendasi makanan dan minuman yang sehat secara ilmiah untuk mood ini, sertakan resep singkat dan fun fact nutrisinya."
@@ -83,6 +83,7 @@ st.sidebar.header("Riwayat Konsultasi (Database)")
 if 'history' in st.session_state:
     for h in st.session_state['history']:
         st.sidebar.info(h)
+
 
 
 
