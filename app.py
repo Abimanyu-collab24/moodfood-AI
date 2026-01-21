@@ -87,12 +87,12 @@ st.markdown("""
     }
 """, unsafe_allow_html=True)
 
-col1, col2 = st.columns([1, 5])
-with col1:
-    st.image(logo, width=200) 
+#col1, col2 = st.columns([1, 5])
+#with col1:
+ #   st.image(logo, width=200) 
 
-with col2:
-    st.title("MoodFood AI")
+#with col2:
+ #   st.title("MoodFood AI")
 st.markdown("---")
 
 # Bagian Input User
@@ -120,6 +120,7 @@ st.sidebar.header("Riwayat Konsultasi (Database)")
 if 'history' in st.session_state:
     for h in st.session_state['history']:
         st.sidebar.info(h)
+
 
 
 
