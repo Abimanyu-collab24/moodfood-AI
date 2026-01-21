@@ -75,7 +75,7 @@ st.markdown("""
         padding: 10px;
         margin-bottom: 10px;
     ">
-        <img src="https://raw.githubusercontent.com/ahmadabimanyu/moodfood-ai/main/logo.png" 
+        <img src="LogoMFoke.png" 
              style="width: 50px; height: 50px; object-fit: contain; border-radius: 8px;">
         <h1 style="
             margin: 0; 
@@ -121,6 +121,7 @@ st.sidebar.header("Riwayat Konsultasi (Database)")
 if 'history' in st.session_state:
     for h in st.session_state['history']:
         st.sidebar.info(h)
+
 
 
 
