@@ -1,4 +1,4 @@
-import streamlit as st  # Baris ini SANGAT PENTING agar 'st' dikenali
+import streamlit as st 
 import google.generativeai as genai
 from PIL import Image
 
@@ -13,10 +13,10 @@ st.markdown("""
     <style>
 @media (max-width: 480px) {
         h1 {
-            font-size: 20px !important; /* Mengecilkan tulisan di HP */
+            font-size: 20px !important; 
         }
         img {
-            width: 40px !important; /* Mengecilkan gambar di HP */
+            width: 40px !important; 
             height: 40px !important;
         }
     }
@@ -101,6 +101,7 @@ st.sidebar.header("Riwayat Konsultasi (Database)")
 if 'history' in st.session_state:
     for h in st.session_state['history']:
         st.sidebar.info(h)
+
 
 
 
