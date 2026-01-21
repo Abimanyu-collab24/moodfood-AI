@@ -11,6 +11,16 @@ st.set_page_config(page_title="MoodFood AI", page_icon=logo)
 
 st.markdown("""
     <style>
+@media (max-width: 480px) {
+        h1 {
+            font-size: 20px !important; /* Mengecilkan tulisan di HP */
+        }
+        img {
+            width: 40px !important; /* Mengecilkan gambar di HP */
+            height: 40px !important;
+        }
+    }
+    
     .stApp {
         background: linear-gradient(to right, #f8f9fa, #e8f5e9);
     }
@@ -91,6 +101,7 @@ st.sidebar.header("Riwayat Konsultasi (Database)")
 if 'history' in st.session_state:
     for h in st.session_state['history']:
         st.sidebar.info(h)
+
 
 
 
