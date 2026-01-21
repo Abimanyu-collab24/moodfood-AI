@@ -4,13 +4,30 @@ from PIL import Image
 
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
-logo = Image.open("LogoMFoke.png")
 
 #Konfigurasi Halaman (Favicon tetap pakai logo kecil)
 st.set_page_config(page_title="MoodFood AI", page_icon=logo)
 
 st.markdown("""
     <style>
+    <div style="
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        gap: 12px; 
+        padding: 10px;
+        margin-bottom: 10px;
+    ">
+        <img src="LogoMFoke.png" 
+             style="width: 50px; height: 50px; object-fit: contain; border-radius: 8px;">
+        <h1 style="
+            margin: 0; 
+            font-size: 24px; 
+            color: #2E7D32; 
+            font-family: 'Poppins', sans-serif;
+            white-space: nowrap;
+        ">MoodFood AI</h1>
+    </div>
 @media (max-width: 480px) {
         h1 {
             font-size: 20px !important; 
@@ -67,13 +84,6 @@ st.markdown("""
         font-weight: bold;
     }
 """, unsafe_allow_html=True)
-
-col1, col2 = st.columns([1, 5])
-with col1:
-    st.image(logo, width=200) 
-
-with col2:
-    st.title("MoodFood AI")
 st.markdown("---")
 
 # Bagian Input User
@@ -101,6 +111,7 @@ st.sidebar.header("Riwayat Konsultasi (Database)")
 if 'history' in st.session_state:
     for h in st.session_state['history']:
         st.sidebar.info(h)
+
 
 
 
