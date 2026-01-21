@@ -9,15 +9,12 @@ logo = Image.open("LogoMFoke.png")
 #Konfigurasi Halaman (Favicon tetap pakai logo kecil)
 st.set_page_config(page_title="MoodFood AI", page_icon=logo)
 
-# --- 2. LETAKKAN CUSTOM CSS DI SINI (Tepat setelah set_page_config) ---
 st.markdown("""
     <style>
-    /* Mengubah warna background aplikasi agar lebih bersih */
     .stApp {
         background-color: #f9fbf9;
     }
     
-    /* Mempercantik tombol 'Dapatkan Rekomendasi Menu' */
     .stButton>button {
         width: 100%;
         border-radius: 25px;
@@ -42,7 +39,6 @@ st.markdown("""
         border-right: 1px solid #e0e0e0;
     }
 
-    /* Mengatur style teks judul agar lebih profesional */
     h1 {
         color: #1B5E20 !important;
         font-family: 'Trebuchet MS', sans-serif;
@@ -83,6 +79,7 @@ st.sidebar.header("Riwayat Konsultasi (Database)")
 if 'history' in st.session_state:
     for h in st.session_state['history']:
         st.sidebar.info(h)
+
 
 
 
